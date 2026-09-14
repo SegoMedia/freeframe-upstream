@@ -12,8 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Comments are a bottom sheet on a portrait phone, so the video stays in view** — below `md` the comment panel was a full-width overlay that covered the player entirely, so reading or writing a comment meant losing the thing being reviewed. It is now a sheet pinned to the bottom with a 56px peek band that is always visible, draggable between peek, half and full, with a mini transport in the handle row once it covers the player's own controls. The media re-centres in the space left rather than hiding behind the sheet. A landscape phone keeps the side-by-side column from #338, where the spare room is horizontal rather than vertical. (#341) The share screen a guest opens gets the same treatment. Opening the sheet scales the media to fit above it rather than sliding it out of view, so the whole frame stays visible at every height, and turning on drawing collapses the sheet to just its composer, since nobody marking up a frame is reading older comments.
 
 ### Changed
-- **The frontend's dev tooling is on newer, non-vulnerable versions** — Vite moved from 8.0.1 to 8.2.2+
-  (declared directly so its release doesn't drift, and pinned through Dependabot's RSC-fast scan), Vitest
+- **The frontend's dev tooling is on newer, non-vulnerable versions** — Vite moved from 8.0.1 to 8.3.0 and is
+  now declared as a direct devDependency (it was only ever reaching the tree transitively), Vitest
   to 4.1.11, and the build-time transitives Dependabot flags were bumped inside their existing ranges:
   PostCSS to 8.5.25, `nanoid@3` to 3.3.18, `glob@10` to 10.5.0, js-yaml to 4.3.1 and
   `brace-expansion@1` to 1.1.18, via pnpm overrides. Everything here is dev/build-only (no runtime
