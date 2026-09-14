@@ -16,8 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   now declared as a direct devDependency (it was only ever reaching the tree transitively), Vitest
   to 4.1.11, and the build-time transitives Dependabot flags were bumped inside their existing ranges:
   PostCSS to 8.5.25, `nanoid@3` to 3.3.18, `glob@10` to 10.5.0, js-yaml to 4.3.1 and
-  `brace-expansion@1` to 1.1.18, via pnpm overrides. Everything here is dev/build-only (no runtime
-  behaviour), and the full web gate — type check, 487 tests, production build, lint — stays green.
+  `brace-expansion@1` to 1.1.18. The pins are overrides declared both npm- and pnpm-style, so they hold
+  whichever install path is used (the Docker Compose dev stack installs with `npm`, CI and local dev with
+  pnpm). `apps/web` now declares its Node engine (`^20.19 || ^22.12 || >24`) and the contributing guide's
+  prerequisite is corrected to match. Everything here is dev/build-only (no runtime behaviour), and the
+  full web gate — type check, 487 tests, production build, lint — stays green.
 - **The video transport row collapses on a phone** — below `sm` it ran out of width and the controls crowded together at a 28px target. Loop, speed and mute move behind an overflow menu, the remaining controls get the platform's 44px minimum, and the row carries the home-indicator inset. Above `sm`, including a landscape phone, everything stays inline exactly as before. (#341)
 
 ### Fixed
