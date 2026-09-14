@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Comments are a bottom sheet on a portrait phone, so the video stays in view** — below `md` the comment panel was a full-width overlay that covered the player entirely, so reading or writing a comment meant losing the thing being reviewed. It is now a sheet pinned to the bottom with a 56px peek band that is always visible, draggable between peek, half and full, with a mini transport in the handle row once it covers the player's own controls. The media re-centres in the space left rather than hiding behind the sheet. A landscape phone keeps the side-by-side column from #338, where the spare room is horizontal rather than vertical. (#341) The share screen a guest opens gets the same treatment. Opening the sheet scales the media to fit above it rather than sliding it out of view, so the whole frame stays visible at every height, and turning on drawing collapses the sheet to just its composer, since nobody marking up a frame is reading older comments.
 
 ### Changed
+- **The API test tooling moves to pytest 9** — pytest 8.4.2 is pinned
+  (`apps/api/requirements.txt`) and hits the CVE-2025-71176 advisory; 9.0.3 clears it. Because
+  pytest-asyncio 0.26.0 pins `pytest<9`, it comes along on the trip to 1.4.0. Both are dev-only; the
+  full backend suite (475 tests, `python -m pytest apps/api/tests/`) stays green under the new pair.
 - **The video transport row collapses on a phone** — below `sm` it ran out of width and the controls crowded together at a 28px target. Loop, speed and mute move behind an overflow menu, the remaining controls get the platform's 44px minimum, and the row carries the home-indicator inset. Above `sm`, including a landscape phone, everything stays inline exactly as before. (#341)
 
 ### Fixed
